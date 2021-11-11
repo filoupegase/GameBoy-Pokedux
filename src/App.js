@@ -19,10 +19,14 @@ const App = ({click, fetchPokemons, pending, showPokemeon, pokemons}) => {
   return (
     <>
       <div className="App">
-        <button onClick={() => click()}>
+        <button
+          onClick={() => click()}
+        >
           Click
         </button>
-        <GameBoy showPokemeon={() => showPokemeon(pokemons)} />
+        <GameBoy
+          showPokemeon={() => showPokemeon(pokemons)}
+        />
         <PokeList />
       </div>
     </>
