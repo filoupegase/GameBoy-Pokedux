@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PokemonItem from "./PokemonItem";
 
 const PokeList = ({click, pokemons, pending}) => {
-  console.log(pending);
   return (
     <div className="list-container">
       <h2>Try : {click}</h2>

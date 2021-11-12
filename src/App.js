@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import "./styles.css";
 import { connect } from 'react-redux';
-import { CLICK, showPokemeonAction } from "./store/action";
+import { catchPokemonAction, CLICK, showPokemonAction } from "./store/action";
 import GameBoy from "./components/GameBoy";
 import PokeList from "./components/PokeList";
 import fetchPokemons from "./store/fetchPokemons";
 import Spinner from "./components/Loader"
 
-const App = ({click, fetchPokemons, pending, showPokemeon, pokemons}) => {
+const App = ({click, fetchPokemons, pending, showPokemon, pokemons, catchPokemon}) => {
   useEffect(() => {
     fetchPokemons()
   }, [fetchPokemons])
@@ -25,7 +25,8 @@ const App = ({click, fetchPokemons, pending, showPokemeon, pokemons}) => {
           Click
         </button>
         <GameBoy
-          showPokemeon={() => showPokemeon(pokemons)}
+          showPokemon={() => showPokemon(pokemons)}
+          catchPokemon={() => catchPokemon()}
         />
         <PokeList />
       </div>
@@ -44,7 +45,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPokemons: () => dispatch(fetchPokemons()),
     click: () => dispatch({type: CLICK}),
-    showPokemeon: pokemons => dispatch(showPokemeonAction(pokemons))
+    showPokemon: pokemons => dispatch(showPokemonAction(pokemons)),
+    catchPokemon: () => dispatch(catchPokemonAction())
   }
 }
 
