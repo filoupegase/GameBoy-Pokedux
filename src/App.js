@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./styles.css";
 import { connect } from 'react-redux';
-import { catchPokemonAction, CLICK, showPokemonAction } from "./store/action";
+import { CLICK, showPokemonAction, catchPokemonAction } from "./store/action";
 import GameBoy from "./components/GameBoy";
 import PokeList from "./components/PokeList";
 import fetchPokemons from "./store/fetchPokemons";
@@ -13,22 +13,29 @@ const App = ({click, fetchPokemons, pending, showPokemon, pokemons, catchPokemon
   }, [fetchPokemons])
 
   if (pending) {
-    return <Spinner />;
+    return <Spinner/>;
   }
 
   return (
     <>
-      <div className="App">
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: 20
+      }}
+      >
         <button
           onClick={() => click()}
         >
           Click
         </button>
+      </div>
+      <div className="App">
         <GameBoy
           showPokemon={() => showPokemon(pokemons)}
-          catchPokemon={() => catchPokemon()}
+          catchPokemon={catchPokemon}
         />
-        <PokeList />
+        <PokeList/>
       </div>
     </>
   );

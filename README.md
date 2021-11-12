@@ -3,3 +3,5 @@
 </div>
 
 # GameBoy-Pokedux
+
+## Learn Redux with GameBoy Colors and PokéApi

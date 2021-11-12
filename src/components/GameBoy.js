@@ -61,8 +61,8 @@ const GameBoy = ({showPokemon, catchPokemon}) => {
             </div>
           </div>
           <div className="bottom-box">
-            <div className="pill-button button-select">
-              <label className="select" onClick={() => showPokemon()}>SELECT</label>
+            <div className="pill-button button-select" onClick={() => showPokemon()}>
+              <label className="select">SELECT</label>
             </div>
             <div className="pill-button button-start">
               <label className="start">START</label>
