@@ -1,6 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const Screen = () => {
+const Screen = ({onScreen}) => {
+  if (onScreen.id) {
+    return (
+      <>
+        <img alt={onScreen.name} src={onScreen.img}/>
+        <h3 className="screen-name">{onScreen.name}</h3>
+      </>
+    );
+  }
   return (
     <>
       <div className="screen-logo">GAME BOY</div>
@@ -10,4 +19,10 @@ const Screen = () => {
   );
 };
 
-export default Screen;
+const mapStateToProps = ({onScreen}) => {
+  return {
+    onScreen
+  };
+};
+
+export default connect(mapStateToProps)(Screen);

@@ -13,7 +13,9 @@ export const fetchPokemonPending = () => ({
 });
 
 export const showPokemeonAction = pokemons => {
-  const random = Math.floor(Math.random() * 10)
+  const filterPokemons = pokemons.filter(pokemon => !pokemon.isCatch)
+  const max = filterPokemons.length;
+  const random = Math.floor(Math.random() * max)
   const onScreen = pokemons[random]
 
   return dispatch => {
